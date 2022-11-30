@@ -28,7 +28,9 @@ export default function RecipeCard({ blog }) {
 
       <style jsx>{`
         .card {
-          transform: rotateZ(-1deg);
+          // transform: rotateZ(-1deg);
+          // max-width: 600px;
+          margin: auto;
         }
         .content {
           background: #fff;
@@ -56,8 +58,8 @@ export default function RecipeCard({ blog }) {
         }
         .actions a {
           color: #fff;
-          background: #f01b29;
-          padding: 16px 24px;
+          background: #000;
+          padding: 16px 60px;
           text-decoration: none;
         }
       `}</style>

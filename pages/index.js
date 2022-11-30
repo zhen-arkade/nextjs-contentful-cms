@@ -1,5 +1,9 @@
+import { useContext } from "react";
+
 import { createClient } from "contentful";
 import BlogCard from "../components/BlogCard";
+
+import { Context } from "../context";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -17,20 +21,32 @@ export async function getStaticProps() {
   };
 }
 
-export default function Recipes({ blogs }) {
-  console.log(blogs);
-
+export default function Blogs({ blogs }) {
+  const { state } = useContext(Context);
+  const { isDark } = state.themeColor;
   return (
-    <div className="recipe-list">
+    // <div className="container blog-list">
+    <div
+      className={isDark ? "dark-container blog-list" : "container blog-list"}
+    >
       {blogs.map((blog) => (
         <BlogCard key={blog.sys.id} blog={blog} />
       ))}
 
       <style jsx>{`
-        .recipe-list {
+        .blog-list {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr;
           grid-gap: 20px 60px;
+          padding-top: 30px;
+        }
+
+        @media (min-width: 768px) {
+          .blog-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px 60px;
+          }
         }
       `}</style>
     </div>
