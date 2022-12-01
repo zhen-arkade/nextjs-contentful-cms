@@ -51,57 +51,40 @@ export default function RecipeDetails({ blog }) {
   if (!blog) return <Skeleton />;
 
   // const { featuredImage, title, cookingTime, ingredients, method } = blog.fields
-  const { title, heroImage } = blog.fields;
+  const { title, heroImage, body } = blog.fields;
 
   return (
-    <div>
+    <div className="container">
+      <h1 className="blogTitle">{title}</h1>
       <div className="banner">
         <Image
           src={"https:" + heroImage.fields.file.url}
           width={heroImage.fields.file.details.image.width}
           height={heroImage.fields.file.details.image.height}
         />
-        <h2>{title}</h2>
       </div>
-      {/* 
-      <div className="info">
-        <p>Takes about { cookingTime } mins to cook.</p>
-        <h3>Ingredients:</h3>
-
-        {ingredients.map(ing => (
-          <span key={ing}>{ ing }</span>
-        ))}
+      {/* blog content */}
+      <div>
+        <div className="blogBody">{documentToReactComponents(body)}</div>
       </div>
-        
-      <div className="method">
-        <h3>Method:</h3>
-        <div>{documentToReactComponents(method)}</div>
-      </div> */}
 
       <style jsx>{`
-        h2,
-        h3 {
-          text-transform: uppercase;
+        .banner {
+          margin-bottom: 40px;
         }
-        .banner h2 {
-          margin: 0;
-          background: #fff;
-          display: inline-block;
-          padding: 20px;
-          position: relative;
-          top: -60px;
-          left: -10px;
-          transform: rotateZ(-1deg);
-          box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+        .blogTitle {
+          text-align: center;
+          margin: 20px 0px;
         }
-        .info p {
-          margin: 0;
+      `}</style>
+      <style global>{`
+        .blogBody p,h2,h3,h4,h5,h6,img,ul,ol {
+          margin-bottom: 20px;
         }
-        .info span::after {
-          content: ", ";
-        }
-        .info span:last-child::after {
-          content: ".";
+
+        .blogBody ol,
+        .blogBody ul{
+          margin-left:20px;
         }
       `}</style>
     </div>

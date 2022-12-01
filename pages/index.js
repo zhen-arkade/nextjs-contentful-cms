@@ -26,9 +26,7 @@ export default function Blogs({ blogs }) {
   const { isDark } = state.themeColor;
   return (
     // <div className="container blog-list">
-    <div
-      className={isDark ? "dark-container blog-list" : "container blog-list"}
-    >
+    <div className="container blog-list">
       {blogs.map((blog) => (
         <BlogCard key={blog.sys.id} blog={blog} />
       ))}

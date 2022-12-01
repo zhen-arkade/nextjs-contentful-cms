@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import React, { useContext } from "react";
+import { Context } from "../context";
 
 export default function RecipeCard({ blog }) {
   const { title, slug, heroImage } = blog.fields;
-  // const { title } = blog.fields;
+  const { state } = useContext(Context);
+  const { isDark } = state.themeColor;
 
   return (
     <div className="card">
@@ -33,12 +36,13 @@ export default function RecipeCard({ blog }) {
           margin: auto;
         }
         .content {
-          background: #fff;
+          background: ${isDark ? "#000" : "#fff"};
           box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
           margin: 0;
           position: relative;
           top: -40px;
           left: -10px;
+          color: ${isDark ? "#fff" : "#000"};
         }
         .info {
           padding: 16px;
@@ -57,8 +61,8 @@ export default function RecipeCard({ blog }) {
           justify-content: flex-end;
         }
         .actions a {
-          color: #fff;
-          background: #000;
+          color: ${isDark ? "#000" : "#fff"};
+          background: ${isDark ? "#fff" : "#000"};
           padding: 16px 60px;
           text-decoration: none;
         }

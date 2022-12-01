@@ -13,7 +13,9 @@ const Header = () => {
       <div className="nav">
         {/* logo text */}
         <div className="logoText">
-          <span> NextjsCMS</span>
+          <Link href="/">
+            <span> NextjsCMS</span>
+          </Link>
         </div>
         {/* theme color toggle */}
         <ThemeColorToggle />
@@ -33,6 +35,7 @@ const Header = () => {
 
         .logoText {
           font-size: 20px;
+          cursor: pointer;
         }
       `}</style>
     </header>

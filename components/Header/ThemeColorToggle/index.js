@@ -6,7 +6,7 @@ import { Context } from "../../../context";
 const index = () => {
   const { state, dispatch } = useContext(Context);
   const { isDark } = state.themeColor;
-  console.log(state);
+
   return (
     <>
       {/* dark toggle */}
@@ -42,6 +42,17 @@ const index = () => {
           width: 30px;
           cursor: pointer;
           color: ${isDark ? "#fff" : "#000"};
+        }
+      `}</style>
+
+      <style global>{`
+        body {
+         
+          background-color: ${isDark ? "#474e68" : "#fff"};
+        }
+        .container .blogBody *,
+        .container .blogTitle{
+          color:${isDark ? "#fff" : "#000"};
         }
       `}</style>
     </>
