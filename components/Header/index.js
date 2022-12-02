@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import ThemeColorToggle from "./ThemeColorToggle";
+import SearchBar from "./SearchBar";
 
 import { Context } from "../../context";
 
@@ -17,6 +18,8 @@ const Header = () => {
             <span> NextjsCMS</span>
           </Link>
         </div>
+        {/* search bar */}
+        <SearchBar />
         {/* theme color toggle */}
         <ThemeColorToggle />
       </div>

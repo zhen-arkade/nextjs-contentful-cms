@@ -1,11 +1,13 @@
 import { useState, useEffect, useReducer, createContext } from "react";
 import { user } from "./reducers/user";
 import { themeColor } from "./reducers/themeColor";
+import { searchBarQuery } from "./reducers/searchBarQuery";
 
 // initial state
 const initialState = {
   user: {},
   themeColor: { isDark: false },
+  searchBarQuery: "",
 };
 
 // create context
@@ -23,7 +25,7 @@ const combineReducers =
 // context provider
 const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(
-    combineReducers(user, themeColor),
+    combineReducers(user, themeColor, searchBarQuery),
     initialState
   ); // pass more reducers combineReducers(user, blogs, products)
   const value = { state, dispatch };

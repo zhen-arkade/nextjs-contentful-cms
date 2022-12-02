@@ -23,11 +23,21 @@ export async function getStaticProps() {
 
 export default function Blogs({ blogs }) {
   const { state } = useContext(Context);
-  const { isDark } = state.themeColor;
+  const { searchBarQuery } = state;
+
+  const filteredBlogs = blogs.filter((blog) => {
+    if (searchBarQuery === "") {
+      //if query is empty
+      return blog;
+    } else if (blog.fields.title.toLowerCase().includes(searchBarQuery)) {
+      //returns filtered array
+      return blog;
+    }
+  });
+
   return (
-    // <div className="container blog-list">
     <div className="container blog-list">
-      {blogs.map((blog) => (
+      {filteredBlogs.map((blog) => (
         <BlogCard key={blog.sys.id} blog={blog} />
       ))}
 
