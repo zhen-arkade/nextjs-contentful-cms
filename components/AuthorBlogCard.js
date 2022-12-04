@@ -3,9 +3,8 @@ import Image from "next/image";
 import React, { useContext } from "react";
 import { Context } from "../context";
 
-export default function BlogCard({ blog }) {
-  const { title, slug, heroImage, description, author, publishDate } =
-    blog.fields;
+export default function AuthorBlogCard({ blog }) {
+  const { title, slug, heroImage, description, author, publishDate } = blog;
   const { state } = useContext(Context);
   const { isDark } = state.themeColor;
   console.log(blog);
@@ -15,9 +14,9 @@ export default function BlogCard({ blog }) {
       {/* <p>{title}</p> */}
       <div className="featured">
         <Image
-          src={"https:" + heroImage.fields.file.url}
-          width={heroImage.fields.file.details.image.width}
-          height={heroImage.fields.file.details.image.height}
+          src={heroImage.url}
+          width={heroImage.width}
+          height={heroImage.height}
         />
       </div>
       <div className="content">
@@ -27,7 +26,7 @@ export default function BlogCard({ blog }) {
         </div>
         <div className="actions">
           <div className="">
-            <p className="authorName">{author.fields.name}</p>
+            <p className="authorName">{author.name}</p>
             <p className="publishedDate">Published at: {publishDate}</p>
           </div>
 

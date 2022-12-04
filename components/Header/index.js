@@ -11,17 +11,19 @@ const Header = () => {
 
   return (
     <header>
-      <div className="nav">
-        {/* logo text */}
-        <div className="logoText">
-          <Link href="/">
-            <span> NextjsCMS</span>
-          </Link>
+      <div className="container">
+        <div className="nav">
+          {/* logo text */}
+          <div className="logoText">
+            <Link href="/">
+              <span> NextjsCMS</span>
+            </Link>
+          </div>
+          {/* search bar */}
+          <SearchBar />
+          {/* theme color toggle */}
+          <ThemeColorToggle />
         </div>
-        {/* search bar */}
-        <SearchBar />
-        {/* theme color toggle */}
-        <ThemeColorToggle />
       </div>
 
       <style jsx>{`

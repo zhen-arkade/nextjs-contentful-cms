@@ -29,24 +29,29 @@ const SearchBar = () => {
       </div>
 
       <style jsx>{`
-      .searchContainer{
-        display;
-      }
+        .searchContainer {
+          display: none;
+        }
         .inputField {
           border-radius: 8px;
           border: none;
           width: 300px;
           padding: 10px 5px;
         }
-        .clearBtn{
-            background-color: #282A3A;
-            color:#fff;
-            border:none;
-            padding:5px 10px;
-            margin-left:10px;
-            border-radius:8px;
-            font-size:16px;
-            cursor:pointer;
+        .clearBtn {
+          background-color: #282a3a;
+          color: #fff;
+          border: none;
+          padding: 5px 10px;
+          margin-left: 10px;
+          border-radius: 8px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        @media (min-width: 768px) {
+          .searchContainer {
+            display: block;
+          }
         }
       `}</style>
     </>
